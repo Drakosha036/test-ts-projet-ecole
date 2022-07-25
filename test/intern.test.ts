@@ -3,7 +3,7 @@ import { Intern } from './../src/intern';
 describe(`Intern class`, () => {
 
     const testIntern : Intern = new Intern();
-    
+
 
     //tester que objet Intern est instancie
     test(`Intern should be intantiated`, () => {
@@ -12,12 +12,12 @@ describe(`Intern class`, () => {
 
     test(`Last name should be Aubert`, () => {
         testIntern.setLastName('Aubert');
-        expect(testIntern.getLastName()).toBe('Aubert');
+        expect(testIntern.getLastName()).toBe('Aubert'.toUpperCase());
     })
 
     test(`First name should be Jean-Luc`, () => {
         testIntern.setFirstName('Jean-Luc');
-        expect(testIntern.getFirstName()).toBe('Jean-Luc');
+        expect(testIntern.getFirstName()).toBe('Jean-Luc'.toUpperCase());
     })
 
     test(`First letter of Last name must be capital letter`, () => {
