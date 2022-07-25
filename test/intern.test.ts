@@ -3,7 +3,7 @@ import { Intern } from './../src/intern';
 describe(`Intern class`, () => {
 
     const testIntern : Intern = new Intern();
-    const firstLetter: string;
+    
 
     //tester que objet Intern est instancie
     test(`Intern should be intantiated`, () => {
