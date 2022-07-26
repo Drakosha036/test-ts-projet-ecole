@@ -1,3 +1,4 @@
+import { Intern } from "../src/intern";
 import { InternCollection } from "../src/intern-collection"
 
 
@@ -11,4 +12,23 @@ describe(`Interns collection test suite`, () => {
         expect(internCollection.getInterns().length).toBe(0);
     })
     
+    test(`Collection length must be 1 after push an Intern object`, () => {
+        //creer l'objet de colletion et ajouter l'objet intern
+        const collection : InternCollection = new InternCollection();
+        const intern : Intern = new Intern();
+        intern.id;
+        intern.setLastName('Aubert');
+        
+        //ajouter intern dans la collection
+        collection.addIntern(intern);
+        collection.addIntern(intern);
+
+        //verifier que apres affectation la longeur de tableau est egal a 1
+        expect(collection.getInterns().length).toBe(1);
+        expect(collection.size).toBe(1);
+    })
+
+    test(`the number of elements in the array must be 0`, () => {
+        expect(internCollection.size).toBe(0);
+    })
 }) 

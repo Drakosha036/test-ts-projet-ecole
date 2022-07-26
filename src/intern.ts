@@ -1,14 +1,12 @@
 export class Intern {
-    private id : number;
+    public id : number;
     private lastName : string;
     private firstName : string;
     private birthDate : string;
     private phone : string;
     private email : string;
 
-    public getId() : number {
-        return this.id;
-    }
+     
 
     public getLastName() : string {
         return this.lastName;
