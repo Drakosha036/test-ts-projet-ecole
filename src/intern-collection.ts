@@ -19,13 +19,22 @@ export class InternCollection {
 
     //methods
     public addIntern(intern: Intern) : void {
+        /** si on ecrit comme ca, obligatoirement commenter pour la lisibilite
+         * 
+        if (this.interns.filter(obj: Intern) => obj.id === intern.id).length === 0) {
+            this.interns.push(intern);
+            this.size = this.size + 1;
+        }
+        */
+
+
         //creer boolean et l'initialiser a false 
         let alreadyExist = false;
 
         for (const existingIntern of this.interns) {
             if (existingIntern.id === intern.id) {
                 alreadyExist = true;
-                break; //pas la bonne idee, car pas tout les langages qui support break
+                //break; //pas la bonne idee, car pas tout les langages qui support break
             }
         }
 
@@ -33,7 +42,7 @@ export class InternCollection {
         if (alreadyExist === false) {
             //on ajout intern dans un tableau des interns
             this.interns.push(intern);
-            this.size = this.size + 1;
+            this.size = this.size + 1; //attention this.size++ ne fonctionne pas!
         }
 
         
