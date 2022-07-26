@@ -16,7 +16,7 @@ describe(`Interns collection test suite`, () => {
         //creer l'objet de colletion et ajouter l'objet intern
         const collection : InternCollection = new InternCollection();
         const intern : Intern = new Intern();
-        intern.id;
+        intern.id = 1;
         intern.setLastName('Aubert');
         
         //ajouter intern dans la collection

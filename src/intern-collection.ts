@@ -25,6 +25,7 @@ export class InternCollection {
         for (const existingIntern of this.interns) {
             if (existingIntern.id === intern.id) {
                 alreadyExist = true;
+                break; //pas la bonne idee, car pas tout les langages qui support break
             }
         }
 
@@ -32,7 +33,7 @@ export class InternCollection {
         if (alreadyExist === false) {
             //on ajout intern dans un tableau des interns
             this.interns.push(intern);
-            this.size = this.size++;
+            this.size = this.size + 1;
         }
 
         
