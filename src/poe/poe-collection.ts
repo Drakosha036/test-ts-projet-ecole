@@ -46,7 +46,7 @@ export class POECollection {
         return this.size;
     }
 
-    public getPOE() : POE[] {
+    public getPOES() : POE[] {
         return this.poes;
     }
 
@@ -58,12 +58,12 @@ export class POECollection {
      * @param poes
      * @todo Remove all duplicates from array before to store
      */
-    public setPOE(poes : POE[]) : void {
+    public setPOES(poes : POE[]) : void {
         ////1-er approche
         //const unique = [...new Set(poes)];
         //this.poes = unique;
 /*
-////2-eme approche
+        ////2-eme approche
         for (const poe of poes) {
             //si existe changer la valeur de isPOE
            // if (this.poes.includes(poe)) {
@@ -88,6 +88,16 @@ export class POECollection {
         //vider le tableau
         this.poes = [];
         for (const poe of poes) {
+            //si poe n'existe pas dans le tableau - l'ajouter
+            if (this.poes.includes(poe) === false) {
+                this.poes.push(poe);
+            }
+        }
+    }
+
+    //fonction pour ajouter les nouveaux element dans le tableau
+    public addPOE(...args : POE[]) : void {
+        for (const poe of args) {
             //si poe n'existe pas dans le tableau - l'ajouter
             if (this.poes.includes(poe) === false) {
                 this.poes.push(poe);
