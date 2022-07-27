@@ -1,10 +1,57 @@
 //creer une classe POE
 
 export class POE {
-    private id : number;
+    //convention pour montrer que l'attribut est private
+    private _id : number;
     public title : string;
-    private beginDate : Date;
-    private endDate : Date;
+    private _beginDate : Date;
+    private _endDate : Date;
+
+    public get beginDate(): Date {
+        return this._beginDate;
+    }
+
+    public set beginDate(beginDate: Date) {
+        this._beginDate = beginDate;
+    }
+
+    public get endDate(): Date {
+        return this._endDate;
+    }
+
+    public set endDate(endDate: Date) {
+        this._endDate = endDate;
+    }
+
+
+
+    //setter "magique" set attribut(parametre : type)
+    //permet d'acceder a methode par attribut
+    //grace a methodes "magique on cache les noms des attributs"
+    public set id(id : number) {
+        if (this._id === undefined) {
+            this._id = id;
+        }
+    }
+
+    public get id() : number {
+        return this._id;
+    }
+
+    //setter et getter classique
+
+    public setId(id : number) : void {
+        if (this._id === undefined) {
+            this._id = id;
+        }
+    }
+    
+    public getId() : number | undefined {
+        return this._id;
+    }
+
+    
+    /*
 
     public constructor() {
         this.id = 0;
@@ -20,11 +67,14 @@ export class POE {
         return this.id;
     }
     
+*/
+
     /**
      * Faire en sorte qu'une POE ne puisse pas avoir 
      * une date de début supérieure à la date de fin,
      * 
     */
+   /*
     public setBeginDate(date : Date) : void {
         let start = this.beginDate; //.toString();
         let end = this.endDate; //.toString();
@@ -49,6 +99,7 @@ export class POE {
     public getEndDate() : Date {
         return this.endDate;
     }
+    */
 
 }
 /**
