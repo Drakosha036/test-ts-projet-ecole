@@ -86,6 +86,8 @@ export class POECollection {
 
         ////3-eme approche
         for (const poe of poes) {
+            //vider le tableau
+            this.poes = [];
             //si poe n'existe pas dans le tableau - l'ajouter
             if (this.poes.includes(poe) === false) {
                 this.poes.push(poe);
