@@ -11,8 +11,25 @@ describe(`POE Collection test suite`, () => {
     poe.title = 'Fullstack';
     poe.beginDate = new Date(2022, 6, 18);
     poe.endDate = new Date(2022, 9, 15);
+
+    const poe1 : POE = new POE();
+    poe1.id = 2;
+    poe1.title = 'DevOps';
+    poe1.beginDate = new Date(2022, 6, 18);
+    poe1.endDate = new Date(2022, 9, 15);
+
+    const poe3 : POE = new POE();
+    poe3.id = 3;
+    poe3.title = 'Helpdesk';
+    poe3.beginDate = new Date(2022, 6, 18);
+    poe3.endDate = new Date(2022, 9, 15);
+
     const POEArray : POE[] = [
         poe, poe
+    ]
+
+    const poes : POE[] = [
+        poe1, poe3
     ]
 
     //tester que objet Intern est instancie
@@ -28,5 +45,12 @@ describe(`POE Collection test suite`, () => {
     test(`setPOE method with an array of same objects should return 1 element`, () => {
         testPOECollection.setPOE(POEArray);
         expect(testPOECollection.getPOE().length).toBe(1);
+    })
+
+    test(`setPOE must replace existing datas`, () => {
+        testPOECollection.setPOE(POEArray);
+        testPOECollection.setPOE(poes);
+
+        expect(testPOECollection.getPOE().length).toBe(2);
     })
 })
