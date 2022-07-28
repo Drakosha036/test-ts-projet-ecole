@@ -18,6 +18,16 @@ export class POECollection extends Collection {
             super.add(poe);
         }
     }
+
+    public setPOES(poes : POE[]) : void {
+        this.collection = [];
+        for (const poe of poes) {
+            //si poe n'existe pas dans le tableau - l'ajouter
+            if (this.collection.includes(poe) === false) {
+                this.collection.push(poe);
+            }
+        }
+    }
 /*
     //Faire en sorte qu'on ne puisse pas avoir deux fois la même POE dans la collection
     public addPOE(poe : POE) : void {

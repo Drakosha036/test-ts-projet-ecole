@@ -6,6 +6,10 @@ import { POECollection } from "../src/poe/poe-collection";
 
 describe(
     `Collection test suite`, () => {
+        test(`Collection should be Instanciated`, () => {
+            const collection : InternCollection = new InternCollection();
+            expect(collection).toBeInstanceOf(InternCollection);
+        })
 
         test(`Collection should only accept Intern object`, () => {
             const collection : InternCollection = new InternCollection();
@@ -31,8 +35,22 @@ describe(
         })
 
 
+        test(`Collection should be Instanciated`, () => {
+            const collection : POECollection = new POECollection();
+            expect(collection).toBeInstanceOf(POECollection);
+        })
+
         test(`Collection should only accept POE object`, () => {
             const collection : POECollection = new POECollection();
+            collection.add(new POE());
+
+            expect(collection.size).toBe(1);
+        })
+
+        test(`Collection should not accept doublicates`, () => {
+            const collection : POECollection = new POECollection();
+            
+            collection.add(new POE());
             collection.add(new POE());
 
             expect(collection.size).toBe(1);

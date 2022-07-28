@@ -39,26 +39,28 @@ describe(`POE Collection test suite`, () => {
 
 
     test(`Collection of poes must be empty at instanciation`, () => {
-        expect(testPOECollection.getPOES().length).toBe(0);
+        expect(testPOECollection.getCollection().length).toBe(0);
     })
 
     test(`setPOE method with an array of same objects should return 1 element`, () => {
         testPOECollection.setPOES(POEArray);
-        expect(testPOECollection.getPOES().length).toBe(1);
+        expect(testPOECollection.getCollection().length).toBe(1);
     })
 
     test(`setPOE must replace existing datas`, () => {
         testPOECollection.setPOES(POEArray);
         testPOECollection.setPOES(poes);
 
-        expect(testPOECollection.getPOES().length).toBe(2);
+        expect(testPOECollection.getCollection().length).toBe(2);
     })
 
     test(`addPOE must add elements to array`, () => {
-        testPOECollection.addPOE(poe, poe);
-        testPOECollection.addPOE(poe1);
-        testPOECollection.addPOE(poe3);
+        testPOECollection.add(poe);
+        testPOECollection.add(poe1);
+        testPOECollection.add(poe3);
 
-        expect(testPOECollection.getPOES().length).toBe(3);
+        expect(testPOECollection.getCollection().length).toBe(3);
     })
+
+ 
 })
