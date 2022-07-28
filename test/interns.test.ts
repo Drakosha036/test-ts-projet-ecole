@@ -9,7 +9,7 @@ describe(`Interns collection test suite`, () => {
 
     test(`Should have 0 elements after constructor`, () => {
         //verifier si la longeur de tableau retourne par getInterns est vide
-        expect(internCollection.getInterns().length).toBe(0);
+        expect(internCollection.getCollection().length).toBe(0);
     })
     
     test(`Collection length must be 1 after push an Intern object`, () => {
@@ -24,7 +24,7 @@ describe(`Interns collection test suite`, () => {
         collection.addIntern(intern);
 
         //verifier que apres affectation la longeur de tableau est egal a 1
-        expect(collection.getInterns().length).toBe(1);
+        expect(collection.getCollection().length).toBe(1);
         expect(collection.size).toBe(1);
     })
 
