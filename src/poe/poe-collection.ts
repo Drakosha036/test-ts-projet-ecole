@@ -1,24 +1,22 @@
+import { Collection } from "../collection/collection";
 import { POE } from "./poe";
+export class POECollection extends Collection {
 
-//creer une classe
-/**
- * private poes : POE[];
- * private size : number;
- * 
- * public addPOE(poe : POE) : void {}
- * 
- * public getSize() : number {}
- * 
- */
+    //on override la methode pour specification de cette classe
+    public add(poe : POE) : void {
 
-export class POECollection {
-    private poes : POE[];
-    private size : number;
-
-    public constructor() {
-        //init tableau de poe et size
-        this.poes = [];
-        this.size = 0; 
+        //findIndex retourne le premier element de tableau s'il exist dans le tableau
+        const alreadyExists: boolean = this.collection.findIndex(
+            //predicat = prediction
+            //on parcourt le tableau par inPOE  
+            (inPOE : POE) => {
+                return inPOE.id === poe.id;
+        }) !== -1
+        //s'il n'y a pas de POE alors creer un
+        if (alreadyExists === false) {
+            //fait reference a la classe superieur = classe mere
+            super.add(poe);
+        }
     }
 /*
     //Faire en sorte qu'on ne puisse pas avoir deux fois la même POE dans la collection
@@ -41,24 +39,13 @@ export class POECollection {
     }
 
 */
-    //accessors
-    public getSize() : number {
-        return this.size;
-    }
-
-    public getPOES() : POE[] {
-        return this.poes;
-    }
-
-    public setSize(size : number) : void {
-        this.size = size;
-    }
-
+/*
+   
     /**
      * @param poes
      * @todo Remove all duplicates from array before to store
      */
-    public setPOES(poes : POE[]) : void {
+/*    public setPOES(poes : POE[]) : void {
         ////1-er approche
         //const unique = [...new Set(poes)];
         //this.poes = unique;
@@ -83,7 +70,7 @@ export class POECollection {
             }
         }
         */
-
+/*
         ////3-eme approche
         //vider le tableau
         this.poes = [];
@@ -104,7 +91,7 @@ export class POECollection {
             }
         }
     }
-
+*/
 
    
 }

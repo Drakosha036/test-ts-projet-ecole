@@ -1,6 +1,8 @@
 
 import { Intern } from "../src/intern";
 import { InternCollection } from "../src/intern-collection";
+import { POE } from "../src/poe/poe";
+import { POECollection } from "../src/poe/poe-collection";
 
 describe(
     `Collection test suite`, () => {
@@ -12,7 +14,7 @@ describe(
             expect(collection.size).toBe(1);
         })
 
-        test(`Object in the collection should be an Intern instance`, () => {
+        test(`Object a l'indice 0 in the collection should be an Intern instance`, () => {
             const collection : InternCollection = new InternCollection();
             const intern : Intern = new Intern();
 
@@ -20,7 +22,7 @@ describe(
             intern.setLastName('Aubert');
 
             collection.add(intern);
-
+            //version longue
             // const internsArray = collection.getCollection();
             // const internInArray = internsArray[0];
 
@@ -29,5 +31,23 @@ describe(
         })
 
 
+        test(`Collection should only accept POE object`, () => {
+            const collection : POECollection = new POECollection();
+            collection.add(new POE());
+
+            expect(collection.size).toBe(1);
+        })
+
+        test(`Object a l'indice 0 in the collection should be an POE instance`, () => {
+            const collection : POECollection = new POECollection();
+            const poe : POE = new POE();
+
+            poe.id = 1;
+            poe.title = 'Fullstack';
+
+            collection.add(poe);
+
+            expect(collection.getCollection()[0]).toBeInstanceOf(POE);
+        })
     }
 )
