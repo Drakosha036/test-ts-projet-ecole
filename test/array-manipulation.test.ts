@@ -32,6 +32,12 @@ describe(
             
             expect(arrayManipulation.maxOfNumbers()).toBe(58);
         })
+
+        test(`Find an element with indice`, () => {
+            // your logic here
+            
+            expect(arrayManipulation.getNiemeNumber(2)).toBe(23);
+        })
     }
     
 )

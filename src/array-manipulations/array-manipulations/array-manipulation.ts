@@ -9,6 +9,14 @@ export class ArrayManipulation {
         return this.numbers;
     }
 
+    public getNiemeNumber(indice : number) : number {
+        if (indice < this.numbers.length) {
+            return this.numbers[indice];
+        }
+        //si la condition est fausse lever une exception
+        throw new Error(`L'indice est en dehors des limites : ${this.numbers.length - 1}`);
+    }
+
     public countNumbers() {
         return this.numbers.length;
 
