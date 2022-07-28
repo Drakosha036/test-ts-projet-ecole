@@ -20,8 +20,8 @@ describe(`Interns collection test suite`, () => {
         intern.setLastName('Aubert');
         
         //ajouter intern dans la collection
-        collection.addIntern(intern);
-        collection.addIntern(intern);
+        collection.add(intern);
+        collection.add(intern);
 
         //verifier que apres affectation la longeur de tableau est egal a 1
         expect(collection.getCollection().length).toBe(1);

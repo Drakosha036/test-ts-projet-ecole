@@ -2,9 +2,26 @@ import { Collection } from "./collection/collection";
 import { Intern } from "./intern";
 
 export class InternCollection extends Collection {
-    //attributs
-    public size : number = 0;
 
+    //on override la methode pour specification de cette classe
+    public add(intern : Intern) : void {
+
+        //findIndex retourne le premier element de tableau s'il exist dans le tableau
+        const alreadyExists: boolean = this.collection.findIndex(
+            //predicat = prediction
+            //on parcourt le tableau par inIntern comme intern of interns
+            (inIntern : Intern) => {
+                return inIntern.id === intern.id;
+        }) !== -1
+
+        if (alreadyExists === false) {
+            //fait reference a la classe superieur = classe mere
+            super.add(intern);
+        }
+    }
+
+    //partie refactorise:
+/*
     //methods
     public addIntern(intern: Intern) : void {
         /** si on ecrit comme ca, obligatoirement commenter pour la lisibilite
@@ -15,7 +32,7 @@ export class InternCollection extends Collection {
         }
         */
 
-
+/*
         //creer boolean et l'initialiser a false 
         let alreadyExist = false;
 
@@ -35,7 +52,8 @@ export class InternCollection extends Collection {
 
         
     }
-
+*/
+/*
     public removeIntern(intern : Intern) : void {
         this.size = this.size--;
 
@@ -44,5 +62,5 @@ export class InternCollection extends Collection {
     public updateIntern(intern : Intern) : void {
 
     }
-    
+  */  
 }
