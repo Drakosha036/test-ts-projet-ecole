@@ -1,7 +1,17 @@
 import { Collection } from "../collection/collection";
 import { POE } from "./poe";
-export class POECollection extends Collection {
+export class POECollection extends Collection <POE> {
 
+    //implementation de classe abstrait
+    public remove(item: POE): void {
+        this.collection.splice(
+            this.collection.findIndex((inItem : POE) => inItem.id === item.id), 1
+            )
+        this.size = this.collection.length;
+       console.log('Remove an item from the collection');
+    }
+
+    /*
     //on override la methode pour specification de cette classe
     public add(poe : POE) : void {
 
@@ -15,6 +25,15 @@ export class POECollection extends Collection {
         //s'il n'y a pas de POE alors creer un
         if (alreadyExists === false) {
             //fait reference a la classe superieur = classe mere
+            super.add(poe);
+        }
+    }
+    */
+
+    public add(poe : POE): void {
+        if (
+            this.collection.findIndex((inPoe : POE) => inPoe.id === poe.id) === -1
+        ) {
             super.add(poe);
         }
     }

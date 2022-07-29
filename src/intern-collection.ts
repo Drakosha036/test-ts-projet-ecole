@@ -1,7 +1,7 @@
 import { Collection } from "./collection/collection";
 import { Intern } from "./intern";
 
-export class InternCollection extends Collection {
+export class InternCollection extends Collection <Intern> {
 
     //on override la methode pour specification de cette classe
     public add(intern : Intern) : void {
@@ -18,6 +18,10 @@ export class InternCollection extends Collection {
             //fait reference a la classe superieur = classe mere
             super.add(intern);
         }
+    }
+
+    public remove(item: Intern): void {
+        //NOOP
     }
 
     //partie refactorise:
