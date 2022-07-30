@@ -4,11 +4,21 @@ export class POECollection extends Collection <POE> {
 
     //implementation de classe abstrait
     public remove(item: POE): void {
+        //splice enleve l'element a partir d'une position, combien d'elements a enlever, si on mets pas la deuxieme parametre, ca va supprimer tout ce qui suit deriere element trouve
         this.collection.splice(
+            //parcourt 
             this.collection.findIndex((inItem : POE) => inItem.id === item.id), 1
             )
         this.size = this.collection.length;
        console.log('Remove an item from the collection');
+
+       const resultArray : POE[] = [];
+       for (let index: number = 0; index < this.collection.length; index++) {
+            if (this.collection[index].id !== item.id) {
+                resultArray.push(this.collection[index])
+            }
+       }
+       this.collection = [...resultArray];
     }
 
     /*

@@ -1,5 +1,8 @@
 export class Main {
-    public sayHello(): string {
-        return "Hello Typescript"
+
+    public constructor() {
+        console.log('Coucou');
     }
 }
+
+const main = new Main();
